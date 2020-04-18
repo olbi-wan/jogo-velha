@@ -72,12 +72,10 @@ public class JogoVelha {
     }
 
     private static boolean verificarGanhador(Jogador jogador) {
-
-    	System.out.println(CASAS);
     	
         if(verificarGanhadorLinha(jogador) || verificarGanhadorColuna(jogador) || verificarGanhadorDiagonal(jogador)) {
 
-            System.out.printf("(%s) campeão!!!", jogador);	
+            System.out.printf("(%s) campeão!!!", jogador);
 
             return true;
 
