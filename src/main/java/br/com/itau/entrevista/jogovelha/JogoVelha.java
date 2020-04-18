@@ -48,16 +48,15 @@ public class JogoVelha {
 
         val posicaoLivre = new Point(lerEntrada(jogador, "linha"), lerEntrada(jogador, "coluna"));
 
-        if(!CASAS.containsKey(posicaoLivre)) {
-            System.out.println("Posição Inválida.");
-            return;
+        if(CASAS.get(posicaoLivre) == null || CASAS.get(posicaoLivre) != Jogador.LIVRE) {
+        	System.out.println("Posição inválida, tente novamente!");
+        	jogar(jogador);
         }
-
+        
         // Troca a casa vazia, por uma casa ocupada pelo {@code jogador}.
-        CASAS.remove(posicaoLivre);
         CASAS.put(posicaoLivre, jogador);
-
-    }
+        
+     }
 
     private static int lerEntrada(Jogador jogador, String localizacao) {
 
