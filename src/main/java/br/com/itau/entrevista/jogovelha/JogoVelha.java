@@ -49,13 +49,18 @@ public class JogoVelha {
         val posicaoLivre = new Point(lerEntrada(jogador, "linha"), lerEntrada(jogador, "coluna"));
 
         if(CASAS.get(posicaoLivre) == null || CASAS.get(posicaoLivre) != Jogador.LIVRE) {
-        	System.out.println("Posição inválida, tente novamente!");
-        	jogar(jogador);
+
+            System.out.println("Posição inválida, tente novamente!");
+
+            jogar(jogador);
+
+        } else {
+
+            // Troca a casa vazia, por uma casa ocupada pelo {@code jogador}.
+            CASAS.put(posicaoLivre, jogador);
+
         }
-        
-        // Troca a casa vazia, por uma casa ocupada pelo {@code jogador}.
-        CASAS.put(posicaoLivre, jogador);
-        
+
      }
 
     private static int lerEntrada(Jogador jogador, String localizacao) {
@@ -68,6 +73,8 @@ public class JogoVelha {
 
     private static boolean verificarGanhador(Jogador jogador) {
 
+    	System.out.println(CASAS);
+    	
         if(verificarGanhadorLinha(jogador) || verificarGanhadorColuna(jogador) || verificarGanhadorDiagonal(jogador)) {
 
             System.out.printf("(%s) campeão!!!", jogador);	
